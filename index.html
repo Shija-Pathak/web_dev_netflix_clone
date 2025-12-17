@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Clone - Home</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="header-left">
+                <div class="logo">NETFLIX</div>
+                <nav class="nav-links">
+                    <a href="#" class="nav-link active">Home</a>
+                    <a href="#" class="nav-link">TV Shows</a>
+                    <a href="#" class="nav-link">Movies</a>
+                    <a href="#" class="nav-link">New & Popular</a>
+                    <a href="#" class="nav-link">My List</a>
+                </nav>
+            </div>
+            <div class="header-right">
+                <!-- Added search icon button with toggle functionality -->
+                <button class="icon-btn search-icon-btn" id="searchIconBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16zM21 21l-4.35-4.35 1.414 1.414L10 11.414l-7.071 7.071 1.414 1.414L11.414 10l7.071-7.071-1.414-1.414L10 8.586z"/>
+                    </svg>
+                </button>
+                <div class="search-box" id="searchBox">
+                    <input type="text" class="search-input" id="searchInput" placeholder="Titles, people, genres">
+                    <button class="search-close-btn" id="searchCloseBtn">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M10 8.586L2.929 1.515 1.515 2.929 8.586 10l-7.071 7.071 1.414 1.414L10 11.414l7.071 7.071 1.414-1.414L11.414 10l7.071-7.071-1.414-1.414L10 8.586z"/>
+                        </svg>
+                    </button>
+                </div>
+                <!-- Added notification bell icon with dropdown -->
+                <button class="icon-btn notification-btn" id="notificationBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/>
+                    </svg>
+                    <span class="notification-badge">3</span>
+                </button>
+                <div class="notification-dropdown" id="notificationDropdown">
+                    <div class="dropdown-header">Notifications</div>
+                    <div class="dropdown-item">New episodes available</div>
+                    <div class="dropdown-item">Your list updated</div>
+                    <div class="dropdown-item">Recommended for you</div>
+                </div>
+                <!-- Added profile avatar with dropdown -->
+                <div class="profile-container">
+                    <button class="profile-avatar" id="profileBtn">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Crect fill='%23e50914' width='32' height='32' rx='4'/%3E%3Ctext x='16' y='21' text-anchor='middle' fill='white' font-size='16' font-family='Arial' font-weight='bold'%3EU%3C/text%3E%3C/svg%3E" alt="User">
+                        <svg class="profile-arrow" width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+                            <path d="M6 9L1.5 4.5 2.25 3.75 6 7.5 9.75 3.75 10.5 4.5z"/>
+                        </svg>
+                    </button>
+                    <div class="profile-dropdown" id="profileDropdown">
+                        <div class="dropdown-item">Manage Profiles</div>
+                        <div class="dropdown-item">Account</div>
+                        <div class="dropdown-item">Help Center</div>
+                        <div class="dropdown-divider"></div>
+                        <div class="dropdown-item">Sign out of Netflix</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source src="assets/images/stranger_things.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Stranger Things</h1>
+            <p class="hero-description">When a young boy vanishes, a small town uncovers a mystery involving secret experiments, terrifying supernatural forces and one strange little girl.</p>
+            <div class="hero-buttons">
+                <button class="btn btn-play" id="heroPlayBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8 5v14l11-7z"/>
+                    </svg>
+                    Play
+                </button>
+                <button class="btn btn-info" id="heroInfoBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                    </svg>
+                    More Info
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Movie Rows -->
+    <section class="movie-rows">
+        <!-- Trending Now -->
+        <div class="movie-row">
+            <h2 class="row-title">Trending Now</h2>
+            <div class="row-container">
+                <button class="slider-btn slider-btn-left" data-row="0">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                    </svg>
+                </button>
+                <div class="row-posters" data-row="0">
+                    <div class="movie-card" data-id="1">
+                        <img src="assets/images/the-crown.jpg" alt="The Crown">
+                    </div>
+                    <div class="movie-card" data-id="2">
+                        <img src="assets/images/breaking-bad.jpg" alt="Breaking Bad">
+                    </div>
+                    <div class="movie-card" data-id="3">
+                        <img src="assets/images/ozark.jpg" alt="Ozark">
+                    </div>
+                    <div class="movie-card" data-id="4">
+                        <img src="assets/images/the-witcher.jpg" alt="The Witcher">
+                    </div>
+                    <div class="movie-card" data-id="5">
+                        <img src="assets/images/money-heist.jpg" alt="Money Heist">
+                    </div>
+                    <div class="movie-card" data-id="6">
+                        <img src="assets/images/dark.jpg" alt="Dark">
+                    </div>
+                    <div class="movie-card" data-id="7">
+                        <img src="assets/images/narcos.jpg" alt="Narcos">
+                    </div>
+                </div>
+                <button class="slider-btn slider-btn-right" data-row="0">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Top Picks -->
+        <div class="movie-row">
+            <h2 class="row-title">Top Picks for You</h2>
+            <div class="row-container">
+                <button class="slider-btn slider-btn-left" data-row="1">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                    </svg>
+                </button>
+                <div class="row-posters" data-row="1">
+                    <div class="movie-card" data-id="8">
+                        <img src="assets/images/queens-gambit.jpg" alt="The Queen's Gambit">
+                    </div>
+                    <div class="movie-card" data-id="9">
+                        <img src="assets/images/bridgerton.jpg" alt="Bridgerton">
+                    </div>
+                    <div class="movie-card" data-id="10">
+                        <img src="assets/images/peaky-blinders.jpg" alt="Peaky Blinders">
+                    </div>
+                    <div class="movie-card" data-id="11">
+                        <img src="assets/images/wednesday.jpg" alt="Wednesday">
+                    </div>
+                    <div class="movie-card" data-id="12">
+                        <img src="assets/images/squid-game.jpg" alt="Squid Game">
+                    </div>
+                    <div class="movie-card" data-id="13">
+                        <img src="assets/images/vikings.jpg" alt="Vikings">
+                    </div>
+                    <div class="movie-card" data-id="14">
+                        <img src="assets/images/umbrella-academy.jpg" alt="The Umbrella Academy">
+                    </div>
+                </div>
+                <button class="slider-btn slider-btn-right" data-row="1">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-social">
+                <a href="#" class="social-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/>
+                    </svg>
+                </a>
+                <a href="#" class="social-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                    </svg>
+                </a>
+                <a href="#" class="social-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/>
+                    </svg>
+                </a>
+                <a href="#" class="social-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8.16-7.83.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/>
+                    </svg>
+                </a>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <a href="#">Audio Description</a>
+                    <a href="#">Investor Relations</a>
+                    <a href="#">Legal Notices</a>
+                </div>
+                <div class="footer-column">
+                    <a href="#">Help Center</a>
+                    <a href="#">Jobs</a>
+                    <a href="#">Cookie Preferences</a>
+                </div>
+                <div class="footer-column">
+                    <a href="#">Gift Cards</a>
+                    <a href="#">Terms of Use</a>
+                    <a href="#">Corporate Information</a>
+                </div>
+                <div class="footer-column">
+                    <a href="#">Media Center</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">Contact Us</a>
+                </div>
+            </div>
+            <button class="service-code-btn">Service Code</button>
+            <p class="footer-copy">&copy; 1997-2025 Netflix, Inc.</p>
+        </div>
+    </footer>
+
+    <!-- Video Player Modal -->
+
+<div class="modal" id="videoModal">
+  <div class="modal-overlay"></div>
+  <div class="modal-content video-modal-content">
+    <button class="modal-close" id="videoModalClose">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+      </svg>
+    </button>
+
+    <video class="modal-video" id="modalVideo" controls>
+      <source src="assets/images/stranger_things.mp4" type="video/mp4">
+    </video>
+  </div>
+</div>
+
+
+    <!-- Redesigned info modal to match reference image exactly -->
+    <div class="modal" id="infoModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content info-modal-content">
+            <button class="modal-close" id="infoModalClose">
+                <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+                    <circle cx="18" cy="18" r="18" fill="#181818"/>
+                    <path d="M24 12L12 24M12 12L24 24" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </button>
+            
+            <div class="info-modal-hero">
+                <video class="info-modal-video" id="infoModalVideo" autoplay muted loop playsinline>
+                    <source src="assets/video/preview.mp4" type="video/mp4">
+                </video>
+                <div class="info-modal-hero-overlay"></div>
+                <div class="info-modal-hero-content">
+                    <div class="info-modal-logo">NETFLIX</div>
+                    <h1 class="info-modal-title-styled" id="infoTitleStyled">Mercy to None</h1>
+                    <div class="info-modal-hero-buttons">
+                        <button class="btn btn-play btn-modal-play">
+                            <svg width="28" height="28" viewBox="0 0 28 28" fill="currentColor">
+                                <path d="M10 7v14l11-7z"/>
+                            </svg>
+                            Play
+                        </button>
+                        <button class="btn-icon" id="addToListBtn">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 5v14M5 12h14"/>
+                            </svg>
+                        </button>
+                        <button class="btn-icon" id="likeBtn">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <button class="volume-btn" id="volumeBtn">
+                        <svg class="volume-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="info-modal-details">
+                <div class="info-modal-meta">
+                    <div class="info-modal-meta-left">
+                        <span class="info-modal-year" id="infoYear">2025</span>
+                        <span class="info-modal-type">Limited Series</span>
+                        <span class="info-modal-rating">
+                            <span class="rating-badge">18+</span>
+                        </span>
+                        <span class="info-modal-quality">
+                            <svg width="32" height="18" viewBox="0 0 32 18" fill="none">
+                                <rect width="32" height="18" fill="#333" rx="2"/>
+                                <text x="16" y="13" text-anchor="middle" fill="white" font-size="10" font-family="Arial" font-weight="bold">HD</text>
+                            </svg>
+                        </span>
+                        <span class="info-modal-badge">
+                            <svg width="42" height="18" viewBox="0 0 42 18" fill="none">
+                                <rect width="42" height="18" fill="#333" rx="2"/>
+                                <text x="21" y="13" text-anchor="middle" fill="white" font-size="9" font-family="Arial" font-weight="bold">Spatial</text>
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="info-modal-tags">
+                    <span class="info-tag">18+</span>
+                    <span class="info-tag">violence, language, substances</span>
+                </div>
+
+                <div class="info-modal-body">
+                    <div class="info-modal-main">
+                        <p class="info-modal-description" id="infoDescription">Power, ambition, revenge. After his brother's murder, a former gangster returns to the underworld — ready to settle every score, by any means necessary.</p>
+                        
+                        <div class="info-modal-cast">
+                            <span class="cast-label">Cast:</span>
+                            <span class="cast-names" id="infoCast">So Ji-sub, Huh Joon-ho, Gong Myoung, more</span>
+                        </div>
+
+                        <div class="info-modal-genres">
+                            <span class="genre-label">Genres:</span>
+                            <span class="genre-names" id="infoGenre">TV Drama, Korean, TV Action & Adventure</span>
+                        </div>
+
+                        <div class="info-modal-tags-bottom">
+                            <span class="tag-label">This Show is:</span>
+                            <span class="tag-names">Gritty, Dark</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-modal-episodes">
+                    <div class="episodes-header">
+                        <h3>Episodes</h3>
+                        <span class="episodes-type">Limited Series</span>
+                    </div>
+                    <div class="episode-list">
+                        <div class="episode-item">
+                            <div class="episode-number">1</div>
+                            <div class="episode-thumbnail">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='90'%3E%3Crect fill='%23303030' width='160' height='90'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23666' font-size='14' font-family='Arial'%3EEpisode 1%3C/text%3E%3C/svg%3E" alt="Episode 1">
+                                <button class="episode-play-btn">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M8 5v14l11-7z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="episode-info">
+                                <div class="episode-header">
+                                    <span class="episode-title">Episode 1</span>
+                                    <span class="episode-duration">42m</span>
+                                </div>
+                                <p class="episode-description">After Nam Gi-seok's mysterious death, Nam Gi-jun emerges from seclusion on a mission to find the perpetrator — no matter the cost.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
